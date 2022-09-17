@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://api.linalien.nomoredomains.sbs';
+export const BASE_URL = 'https://api.mesto.linalien.nomoredomains.sbs';
 
 export const register = (email, password) => {
     return fetch(`${BASE_URL}/signup`, {

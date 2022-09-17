@@ -98,7 +98,7 @@ class Api {
 }
 
 const api = new Api({
-    baseUrl: 'https://api.linalien.nomoredomains.sbs',
+    baseUrl: 'https://api.mesto.linalien.nomoredomains.sbs',
     headers: {
         authorization: `Bearer ${token}`,
         'Content-Type': 'application/json'
