@@ -1,3 +1,5 @@
+const token = localStorage.getItem('token');
+
 class Api {
     constructor(options) {
         this._baseUrl = options.baseUrl;
