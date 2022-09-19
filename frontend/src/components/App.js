@@ -158,7 +158,7 @@ function App() {
         .then((res) => {
           if (res) {
             // авторизуем пользователя
-            const email = res.data.email
+            const email = res.user.email
             setLoggedIn(true);
             setUserEmail(email);
           }
@@ -193,16 +193,20 @@ function App() {
       .catch((err) => console.log(err));
   }
 
-  function onAuthorize(email, password) {
+  function onAuthorize(email, password) { // авторизация
     auth.authorize(email, password)
       .then((data) => {
         if (data.token) {
+          const token = localStorage.getItem("token");
+          api.getToken(token);
           setLoggedIn(true);
           setUserEmail(email);
           history.push('/')
         }
       })
-      .catch(err => console.log(err));
+      .catch(err => 
+        console.log(err));
+        setLoggedIn(false);
   }
 
   return (

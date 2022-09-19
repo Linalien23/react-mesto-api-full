@@ -1,12 +1,18 @@
 const token = localStorage.getItem('token');
 
 class Api {
-    constructor(options) {
-        this._baseUrl = options.baseUrl;
-        this._headers = options.headers;
+    constructor(config) {
+        this._baseUrl = config.baseUrl;
+        this._headers = config.headers;
+        this._token = config.headers.authorization;
     }
 
-    handleResponse(res) {
+    getToken = (token) => { // Метод принимает токен и подставляет его в заголовок объекта api
+        this._token = `Bearer ${token}`
+    }
+
+
+    handleResponse(res) { // Метод проверки ответа от сервера
         if (res.ok) {
             return res.json();
         }
