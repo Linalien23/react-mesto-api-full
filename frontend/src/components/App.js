@@ -77,12 +77,11 @@ function App() {
 
   function handleCardLike(card) { // Код, который будет вызываться при клике на лайк
     // Проверяем, есть ли уже лайк на этой карточке
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
+    const isLiked = card.likes.some((item) => item === currentUser._id);
     function handleNewCardLike(newCard) {
       const newCards = cards.map((c) => c._id === card._id ? newCard : c);
       setCards(newCards);
     }
-
     if (!isLiked) {
       api.likeCard(card._id)
         .then(handleNewCardLike)
@@ -101,7 +100,7 @@ function App() {
   function handleCardDelete(card) { // Удаление карточки
     api.deleteCard(card, card._id)
       .then(() => {
-        const result = cards.filter(item => item._id != (card._id));
+        const result = cards.filter((item) => item._id !== (card._id));
         setCards(result);
       })
       .catch((err) => {
