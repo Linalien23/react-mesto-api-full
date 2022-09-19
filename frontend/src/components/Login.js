@@ -1,6 +1,5 @@
 import React from "react";
 import { withRouter, useHistory } from 'react-router-dom';
-import Header from "./Header.js";
 
 function Login({ onAuthorize }) { // компонент авторизации пользователя
 
@@ -24,10 +23,6 @@ function Login({ onAuthorize }) { // компонент авторизации �
         setEmail('')
         setPassword('')
         onAuthorize(email, password)
-    }
-
-    function onRegister() {
-        history.push('/sign-up');
     }
 
     return (
