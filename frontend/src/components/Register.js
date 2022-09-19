@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, useHistory } from 'react-router-dom';
-import Header from "./Header.js";
 
 
 function Register({ onButtonClick }) { // компонент регистрации пользователя
@@ -22,17 +21,8 @@ function Register({ onButtonClick }) { // компонент регистрац�
         onButtonClick(email, password);
     }
 
-    function onLogin() {
-        history.push('/sign-in');
-    }
-
-
     return (
         <section>
-
-            {/* <Header
-                text='Войти'
-                onClick={onLogin} /> */}
 
             <div className="register">
 

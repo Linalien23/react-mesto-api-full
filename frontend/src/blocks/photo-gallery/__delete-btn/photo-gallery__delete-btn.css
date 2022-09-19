@@ -10,6 +10,8 @@
     cursor: pointer;
     border: none;
     transition: 0.2s linear;
+    visibility: hidden;
+    opacity: 0;
 }
 
 .photo-gallery__delete-btn:hover {

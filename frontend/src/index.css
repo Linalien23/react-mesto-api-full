@@ -41,7 +41,6 @@
 @import url('./blocks/photo-gallery/__like-counter/photo-gallery__like-counter.css');
 @import url('./blocks/photo-gallery/__delete-btn/photo-gallery__delete-btn.css');
 @import url('./blocks/photo-gallery/__delete-btn/_visible/photo-gallery__delete-btn_visible.css');
-@import url('./blocks/photo-gallery/__delete-btn/_hidden/photo-gallery__delete-btn_hidden.css');
 @import url('./blocks/photo-gallery/__zoom-btn/photo-gallery__zoom-btn.css');
 @import url('./blocks/zoom-popup/zoom-popup.css');
 @import url('./blocks/zoom-popup/__card/zoom-popup__card.css');

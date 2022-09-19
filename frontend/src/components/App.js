@@ -13,7 +13,7 @@ import Register from './Register.js';
 import InfoTooltip from './InfoTooltip.js';
 import ProtectedRoute from './ProtectedRoute.js';
 import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
-import api from '../utils/Api';
+import api from '../utils/api';
 import * as auth from '../utils/auth.js';
 import union from '../images/Union.png';
 import union_err from '../images/Union_Err.png';
@@ -42,18 +42,24 @@ function App() {
   useEffect(() => {
     if (loggedIn) {
       api.getProfileInfo()
-        .then((userStats) => {
-          setCurrentUser(
-            userStats
-          )
+        .then((data) => {
+          setCurrentUser(data.user)
         })
         .catch((err) => {
           console.log(err);
         })
 
-      api.getCards().
-        then((data) => {
-          setCards(data)
+      api.getCards()
+        .then((data) => {
+          setCards(
+            data.map((card) => ({
+              _id: card._id,
+              link: card.link,
+              name: card.name,
+              likes: card.likes,
+              owner: card.owner
+            }))
+          )
         })
         .catch((err) => {
           console.log(err);
@@ -107,7 +113,7 @@ function App() {
     api.updateUserInfo(data)
       .then((userStats) => {
         setCurrentUser(
-          userStats
+          userStats.user
         )
         closeAllPopup()
       })
@@ -120,7 +126,7 @@ function App() {
     api.updateUserAvatar(data)
       .then((userStats) => {
         setCurrentUser(
-          userStats
+          userStats.user
         )
         closeAllPopup()
       })
@@ -205,10 +211,10 @@ function App() {
 
       <div className="page">
         <div className="page__content">
-          
-          <Header 
-            email={userEmail} 
-            onClick={ handleSignOut } />
+
+          <Header
+            email={userEmail}
+            onClick={handleSignOut} />
 
           <Switch>
 

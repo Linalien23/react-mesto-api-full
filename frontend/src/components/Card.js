@@ -5,8 +5,8 @@ function Card(props) {
 
     const user = React.useContext(CurrentUserContext);
     const isOwn = props.owner._id === user._id; // Определяю, являюсь ли я владельцем текущей карточки
-    const cardDeleteButtonClassName = (`photo-gallery__delete-btn ${isOwn ? 'photo-gallery__delete-btn_visible' : 'photo-gallery__delete-btn_hidden'}`);
-    const isLiked = props.likes.some(i => i._id === user._id); // Определяею, есть ли у карточки лайк, поставленный текущим пользователем
+    const cardDeleteButtonClassName = (`${isOwn ? 'photo-gallery__delete-btn photo-gallery__delete-btn_visible' : 'photo-gallery__delete-btn'}`);
+    const isLiked = props.likes.some(item => item === user._id);; // Определяею, есть ли у карточки лайк, поставленный текущим пользователем
     const cardLikeButtonClassName = (`${isLiked ? 'photo-gallery__like-btn_active' : 'photo-gallery__like-btn'}`);
 
 
