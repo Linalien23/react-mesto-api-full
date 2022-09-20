@@ -19,7 +19,7 @@ class Api {
         return Promise.reject(res.status);
     }
 
-    getProfileInfo() {
+    getProfileInfo() { // Метод получения данных о пользователе с сервера
         return fetch(`${this._baseUrl}/users/me`, {
             headers: this._headers
         })
@@ -28,7 +28,7 @@ class Api {
             );
     }
 
-    getCards() {
+    getCards() { // Метод получения фотокарточек с сервера
         return fetch(`${this._baseUrl}/cards`, {
             headers: this._headers
         })
