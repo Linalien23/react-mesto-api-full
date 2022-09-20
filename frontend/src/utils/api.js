@@ -21,7 +21,9 @@ class Api {
 
     getProfileInfo() { // Метод получения данных о пользователе с сервера
         return fetch(`${this._baseUrl}/users/me`, {
-            headers: this._headers
+            headers: {
+                authorization: this._token
+            }
         })
             .then((res) =>
                 this.handleResponse(res)
@@ -30,7 +32,9 @@ class Api {
 
     getCards() { // Метод получения фотокарточек с сервера
         return fetch(`${this._baseUrl}/cards`, {
-            headers: this._headers
+            headers: {
+                authorization: this._token
+            }
         })
             .then((res) =>
                 this.handleResponse(res)
