@@ -15,7 +15,7 @@ function Header({email, handleSignOut}) {
             </Route>
             <Route exact path="/">
                 <p className= "header__text">{email}</p>
-                <Link to="sign-in" className="header__button" onClick={signOut}>Выйти</Link>
+                <Link to="sign-in" className="header__button" onClick={handleSignOut}>Выйти</Link>
             </Route>
         </header>
     );
