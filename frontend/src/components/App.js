@@ -217,7 +217,7 @@ function App() {
 
           <Header
             email={userEmail}
-            onClick={handleSignOut} />
+            onSignOut={handleSignOut} />
 
           <Switch>
 

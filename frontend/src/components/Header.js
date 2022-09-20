@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../images/header-logo.svg';
 import { Route, Link } from 'react-router-dom';
 
-function Header({email, handleSignOut}) {
+function Header({email, onSignOut}) {
 
     return (
         <header className="header">
@@ -15,7 +15,7 @@ function Header({email, handleSignOut}) {
             </Route>
             <Route exact path="/">
                 <p className= "header__text">{email}</p>
-                <Link to="sign-in" className="header__button" onClick={handleSignOut}>Выйти</Link>
+                <Link to="sign-in" className="header__button" onClick={onSignOut}>Выйти</Link>
             </Route>
         </header>
     );
