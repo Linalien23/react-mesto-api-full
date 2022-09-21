@@ -171,6 +171,8 @@ function App() {
 
   function handleSignOut() { // удалить JWT-токен из localStorage и переадресовать пользователя на страницу /sign-in
     localStorage.removeItem('token');
+    // const a = localStorage.getItem('token');
+    // console.log('token', a);
     history.push('/sign-in');
     setLoggedIn(false);
     setUserEmail(null);

@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from '../images/header-logo.svg';
 import { Route, Link } from 'react-router-dom';
 
 
-function Header({email, onSignOut, onDeleteToken}) {
+function Header({email, onSignOut}) {
 
-    function onSignOut () {
-        onDeleteToken();
+    const [isSelected, setIsSelected] = useState(false);
+
+    function handleClickHeaderButton() {
+        setIsSelected(!isSelected);
     }
 
     return (
@@ -20,7 +22,8 @@ function Header({email, onSignOut, onDeleteToken}) {
             </Route>
             <Route exact path="/">
                 <p className= "header__text">{email}</p>
-                <Link to="sign-in" className="header__button" onClick={onSignOut}>Выйти</Link>
+                <button className="header__button"  onClick={() => {handleClickHeaderButton(); onSignOut();}}>Выйти</button>
+                {/* <Link to="sign-in" className="header__button" onClick={handleSignOut}>Выйти</Link> */}
             </Route>
         </header>
     );
