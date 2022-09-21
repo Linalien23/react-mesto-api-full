@@ -2,7 +2,12 @@ import React from 'react';
 import logo from '../images/header-logo.svg';
 import { Route, Link } from 'react-router-dom';
 
-function Header({email, onSignOut}) {
+
+function Header({email, onSignOut, onDeleteToken}) {
+
+    function onSignOut () {
+        onDeleteToken();
+    }
 
     return (
         <header className="header">
